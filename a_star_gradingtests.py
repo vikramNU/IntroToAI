@@ -91,17 +91,17 @@ time_mapM = {
 }
 
 time_mapT = {
-    'Alex_Robbinson': {'Alex_Robbinson':None, 'Mariana_Cardoso':1, 'Walter_Walker':1, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
-    'Mariana_Cardoso': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':1, 'Aaron_Stone':1, 'Catherine_Stevens':1, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
-    'Walter_Walker': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':1, 'h':1, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
-    'Raj_Gupta': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
-    'Aaron_Stone': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
-    'Catherine_Stevens': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':1, 'Preeti_Singh':1, 'Kim_Lee':None},
-    'Mike_Rhodes': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
-    'h': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':1, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':1},
-    'John_Stevens': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
-    'Preeti_Singh': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
-    'Kim_Lee': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None}
+    'Alex_Robbinson': {'Alex_Robbinson':None, 'Mariana_Cardoso':1, 'Walter_Walker':1, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'Sarah_Parker':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Mariana_Cardoso': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':1, 'Aaron_Stone':1, 'Catherine_Stevens':1, 'Mike_Rhodes':None, 'Sarah_Parker':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Walter_Walker': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':1, 'Sarah_Parker':1, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Raj_Gupta': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'Sarah_Parker':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Aaron_Stone': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'Sarah_Parker':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Catherine_Stevens': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'Sarah_Parker':None, 'John_Stevens':1, 'Preeti_Singh':1, 'Kim_Lee':None},
+    'Mike_Rhodes': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'Sarah_Parker':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Sarah_Parker': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':1, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'Sarah_Parker':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':1},
+    'John_Stevens': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'Sarah_Parker':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Preeti_Singh': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'Sarah_Parker':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Kim_Lee': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'Sarah_Parker':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None}
 }
 
 
@@ -114,120 +114,109 @@ class UnitTests(unittest.TestCase):
     def test1(self):
         expand.expand_count = 0
         path = sc.breadth_first_search(time_map1, 'John_Stevens', 'Mariana_Cardoso')
-        print(path)
-        def check(path):
-            if path == ['John_Stevens', 'Walter_Walker', 'Alex_Robbinson', 'Mariana_Cardoso']:
-                return True
-            if path == ['John_Stevens', 'John_Doe', 'Raj_Gupta', 'Mariana_Cardoso']:
-                return True
-            return False
-        self.assertEqual(True,check(path))
+        # Two correct answers for right-to-left or left-to-right child traversal respectively
+        self.assertIn(path, [['John_Stevens', 'Walter_Walker', 'Alex_Robbinson', 'Mariana_Cardoso'], ['John_Stevens', 'John_Doe', 'Raj_Gupta', 'Mariana_Cardoso']])
+        self.assertIn(expand.expand_count, [6, 6])
 
-        # with self.subTest():
-        #     self.assertEqual(path, ['John_Stevens', 'John_Doe', 'Raj_Gupta', 'Mariana_Cardoso']) or \
-        #     self.assertEqual(path, ['John_Stevens', 'Walter_Walker', 'Alex_Robbinson', 'Mariana_Cardoso'])
-        # assert (path,path)==['John_Stevens', 'John_Doe', 'Raj_Gupta', 'Mariana_Cardoso'],['John_Stevens', 'Walter_Walker', 'Alex_Robbinson', 'Mariana_Cardoso']
-        self.assertEqual(expand.expand_count, 6)
+    def test2(self):
+         expand.expand_count = 0
+         path = sc.breadth_first_search(time_mapM, 'Alex_Robbinson', 'George_Richford')
+         self.assertEqual(path, ['Alex_Robbinson', 'Benjamin_Walker', 'Catherine_Stevens', 'David_Stone', 'Hannah_Mullard', 'George_Richford'])
+         self.assertEqual(expand.expand_count, 8)
 
-  # def test2(self):
-    #     expand.expand_count = 0
-    #     path = sc.breadth_first_search(time_mapM, 'Alex_Robbinson', 'George_Richford')
-    #     self.assertEqual(path, ['Alex_Robbinson', 'Benjamin_Walker', 'Catherine_Stevens', 'David_Stone', 'Hannah_Mullard', 'George_Richford'])
-    #     self.assertEqual(expand.expand_count, 8)
+    def test3(self):
+         expand.expand_count = 0
+         path = sc.depth_first_search(time_mapT, 'Alex_Robbinson', 'Aaron_Stone')
+         # Two correct answers for right-to-left or left-to-right child traversal respectively
+         self.assertIn(path, [['Alex_Robbinson', 'Walter_Walker', 'Sarah_Parker', 'Aaron_Stone'], ['Alex_Robbinson', 'Mariana_Cardoso', 'Aaron_Stone']])
+         self.assertIn(expand.expand_count, [4, 3])
 
-    # def test3(self):
-    #     expand.expand_count = 0
-    #     path = sc.depth_first_search(time_mapT, 'Alex_Robbinson', 'Aaron_Stone')
-    #     # Two correct answers for right-to-left or left-to-right child traversal respectively
-    #     self.assertIn(path, [['Alex_Robbinson', 'Walter_Walker', 'Sarah_Parker', 'Aaron_Stone'], ['Alex_Robbinson', 'Mariana_Cardoso', 'Aaron_Stone']])
-    #     self.assertIn(expand.expand_count, [4, 3])
-
-    # def test4(self):
-    #     expand.expand_count = 0
-    #     path = sc.depth_first_search(time_mapT, 'Alex_Robbinson', 'Raj_Gupta')
-    #     self.assertEqual(path, ['Alex_Robbinson', 'Mariana_Cardoso', 'Raj_Gupta'])
-    #     # Two correct answers for right-to-left or left-to-right child traversal respectively
-    #     self.assertIn(expand.expand_count, [11, 2])
+    def test4(self):
+         expand.expand_count = 0
+         path = sc.depth_first_search(time_mapT, 'Alex_Robbinson', 'Raj_Gupta')
+         self.assertEqual(path, ['Alex_Robbinson', 'Mariana_Cardoso', 'Raj_Gupta'])
+         # Two correct answers for right-to-left or left-to-right child traversal respectively
+         self.assertIn(expand.expand_count, [11, 2])
 
 
-    # def test5(self):
+    def test5(self):
     #     signal.signal(signal.SIGALRM, interrupt)
-    #     expand.expand_count = 0
+         expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map2, time_map2, 'John_Doe', 'Alex_Robbinson')
-    #     self.assertEqual(path, ['John_Doe', 'John_Stevens', 'Walter_Walker', 'Alex_Robbinson'])
-    #     self.assertEqual(expand.expand_count, 5)
+         path = sc.a_star_search(dis_map2, time_map2, 'John_Doe', 'Alex_Robbinson')
+         self.assertEqual(path, ['John_Doe', 'John_Stevens', 'Walter_Walker', 'Alex_Robbinson'])
+         self.assertEqual(expand.expand_count, 5)
 
-    # def test6(self):
+    def test6(self):
     #     signal.signal(signal.SIGALRM, interrupt)
-    #     expand.expand_count = 0
+         expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map2, time_map2, 'Mariana_Cardoso', 'John_Stevens')
-    #     self.assertEqual(path, ['Mariana_Cardoso', 'Alex_Robbinson', 'Walter_Walker', 'John_Stevens'])
-    #     self.assertEqual(expand.expand_count, 5)
+         path = sc.a_star_search(dis_map2, time_map2, 'Mariana_Cardoso', 'John_Stevens')
+         self.assertEqual(path, ['Mariana_Cardoso', 'Alex_Robbinson', 'Walter_Walker', 'John_Stevens'])
+         self.assertEqual(expand.expand_count, 5)
 
-    # def test7(self):
+    def test7(self):
     #     signal.signal(signal.SIGALRM, interrupt)
-    #     expand.expand_count = 0
+         expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map5, time_map5, 'Sarah_Parker', 'John_Doe')
-    #     self.assertEqual(path, ['Sarah_Parker', 'Raj_Gupta', 'John_Doe'])
-    #     self.assertEqual(expand.expand_count, 3)
+         path = sc.a_star_search(dis_map5, time_map5, 'Sarah_Parker', 'John_Doe')
+         self.assertEqual(path, ['Sarah_Parker', 'Raj_Gupta', 'John_Doe'])
+         self.assertEqual(expand.expand_count, 3)
 
-    # def test8(self):
+    def test8(self):
     #     signal.signal(signal.SIGALRM, interrupt)
-    #     expand.expand_count = 0
+         expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map5, time_map5, 'Alex_Robbinson', 'Sarah_Parker')
-    #     self.assertEqual(path, ['Alex_Robbinson', 'Mariana_Cardoso', 'Raj_Gupta', 'John_Doe', 'Sarah_Parker'])
-    #     self.assertEqual(expand.expand_count, 7)
+         path = sc.a_star_search(dis_map5, time_map5, 'Alex_Robbinson', 'Sarah_Parker')
+         self.assertEqual(path, ['Alex_Robbinson', 'Mariana_Cardoso', 'Raj_Gupta', 'John_Doe', 'Sarah_Parker'])
+         self.assertEqual(expand.expand_count, 7)
 
-    # def test9(self):
+    def test9(self):
     #     signal.signal(signal.SIGALRM, interrupt)
-    #     expand.expand_count = 0
+         expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map5, time_map5, 'John_Stevens', 'Sarah_Parker')
-    #     self.assertEqual(path, ['John_Stevens', 'Kim_Lee', 'John_Doe', 'Sarah_Parker'])
-    #     self.assertEqual(expand.expand_count, 5)
+         path = sc.a_star_search(dis_map5, time_map5, 'John_Stevens', 'Sarah_Parker')
+         self.assertEqual(path, ['John_Stevens', 'Kim_Lee', 'John_Doe', 'Sarah_Parker'])
+         self.assertEqual(expand.expand_count, 5)
 
-    # def test10(self):
+    def test10(self):
     #     signal.signal(signal.SIGALRM, interrupt)
-    #     expand.expand_count = 0
+         expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map5, time_map5, 'John_Stevens', 'Raj_Gupta')
-    #     self.assertEqual(path, ['John_Stevens', 'Kim_Lee', 'John_Doe', 'Sarah_Parker', 'Raj_Gupta'])
-    #     self.assertEqual(expand.expand_count, 6)
+         path = sc.a_star_search(dis_map5, time_map5, 'John_Stevens', 'Raj_Gupta')
+         self.assertEqual(path, ['John_Stevens', 'Kim_Lee', 'John_Doe', 'Sarah_Parker', 'Raj_Gupta'])
+         self.assertEqual(expand.expand_count, 6)
 
-    # def test11(self):
+    def test11(self):
     #     signal.signal(signal.SIGALRM, interrupt)
-    #     expand.expand_count = 0
+         expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_mapM, time_mapM, 'Alex_Robbinson', 'Peter_Kilshaw')
-    #     self.assertEqual(path, ['Alex_Robbinson', 'Benjamin_Walker', 'Catherine_Stevens', 'David_Stone', 'Hannah_Mullard', 'George_Richford', 'Fiona_Rutherfurd', 'Jessica_Baker', 'Heather_Raymond', 'Olivia_Keeton', 'Peter_Kilshaw'])
-    #     self.assertEqual(expand.expand_count, 13)
+         path = sc.a_star_search(dis_mapM, time_mapM, 'Alex_Robbinson', 'Peter_Kilshaw')
+         self.assertEqual(path, ['Alex_Robbinson', 'Benjamin_Walker', 'Catherine_Stevens', 'David_Stone', 'Hannah_Mullard', 'George_Richford', 'Fiona_Rutherfurd', 'Jessica_Baker', 'Heather_Raymond', 'Olivia_Keeton', 'Peter_Kilshaw'])
+         self.assertEqual(expand.expand_count, 13)
 
-    # def test12(self):
+    def test12(self):
     #     signal.signal(signal.SIGALRM, interrupt)
-    #     expand.expand_count = 0
+         expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_mapM, time_mapM, 'Hannah_Mullard', 'Peter_Kilshaw')
-    #     self.assertEqual(path, ['Hannah_Mullard', 'George_Richford', 'Fiona_Rutherfurd', 'Jessica_Baker', 'Heather_Raymond', 'Olivia_Keeton', 'Peter_Kilshaw'])
-    #     self.assertEqual(expand.expand_count, 8)
+         path = sc.a_star_search(dis_mapM, time_mapM, 'Hannah_Mullard', 'Peter_Kilshaw')
+         self.assertEqual(path, ['Hannah_Mullard', 'George_Richford', 'Fiona_Rutherfurd', 'Jessica_Baker', 'Heather_Raymond', 'Olivia_Keeton', 'Peter_Kilshaw'])
+         self.assertEqual(expand.expand_count, 8)
 
-    # def test13(self):
+    def test13(self):
     #     signal.signal(signal.SIGALRM, interrupt)
-    #     expand.expand_count = 0
+         expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_mapM, time_mapM, 'Hannah_Mullard', 'Alex_Robbinson')
-    #     self.assertEqual(path, ['Hannah_Mullard', 'David_Stone', 'Catherine_Stevens', 'Benjamin_Walker', 'Alex_Robbinson'])
-    #     self.assertEqual(expand.expand_count, 4)
+         path = sc.a_star_search(dis_mapM, time_mapM, 'Hannah_Mullard', 'Alex_Robbinson')
+         self.assertEqual(path, ['Hannah_Mullard', 'David_Stone', 'Catherine_Stevens', 'Benjamin_Walker', 'Alex_Robbinson'])
+         self.assertEqual(expand.expand_count, 4)
 
-    # def test14(self):
+    def test14(self):
     #     signal.signal(signal.SIGALRM, interrupt)
-    #     expand.expand_count = 0
+         expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_mapM, time_mapM, 'Lakshmi_Raman', 'Heather_Raymond')
-    #     self.assertEqual(path, ['Lakshmi_Raman', 'Peter_Kilshaw', 'Olivia_Keeton', 'Heather_Raymond'])
-    #     self.assertEqual(expand.expand_count, 4)
+         path = sc.a_star_search(dis_mapM, time_mapM, 'Lakshmi_Raman', 'Heather_Raymond')
+         self.assertEqual(path, ['Lakshmi_Raman', 'Peter_Kilshaw', 'Olivia_Keeton', 'Heather_Raymond'])
+         self.assertEqual(expand.expand_count, 4)
 
 if __name__== "__main__": unittest.main()

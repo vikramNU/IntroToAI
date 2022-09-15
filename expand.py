@@ -1,5 +1,6 @@
 expand_count = 0
 
+#Defining the expand function
 def expand(node, _map):
 	global expand_count
 	print(node)

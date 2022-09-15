@@ -49,7 +49,6 @@ class SearchTest(unittest.TestCase):
     def test1(self):
         expand.expand_count = 0
         path = sc.breadth_first_search(time_map1, 'John_Stevens', 'Raj_Gupta')
-        print(path)
         self.assertEqual(path, ['John_Stevens', 'John_Doe', 'Raj_Gupta'])
         self.assertEqual(expand.expand_count, 5)
 

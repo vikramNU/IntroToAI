@@ -15,8 +15,9 @@ class FourGrid(object):
 		return ""
 
 	def __getitem__(self, key):
-	"""Pass in a (row, col) tuple to get a particular cell in this map."""
+		"""Pass in a (row, col) tuple to get a particular cell in this map."""
 		return None
+
 
 class _GridNode(object):
 	"""docstring for _GridNode"""
