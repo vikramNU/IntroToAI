@@ -44,13 +44,13 @@ Time_map = {
 
 'John_Stevens':	{'John_Stevens':None,'John_Doe':4,'Kim_Lee':3,'Raj_Gupta':None,'Walter_Walker':1,'Alex_Robbinson':None,'Mariana_Cardoso':None},
 'John_Doe':
-{'John_Stevens:4,'John_Doe':None,'Kim_Lee':4,'Raj_Gupta':3,'Walter_Walker':None,'Alex_Robbinson':None,'Mariana_Cardoso':None},
+{'John_Stevens':4,'John_Doe':None,'Kim_Lee':4,'Raj_Gupta':3,'Walter_Walker':None,'Alex_Robbinson':None,'Mariana_Cardoso':None},
 
 'Kim_Lee':
 {'John_Stevens':4,'John_Doe':4,'Kim_Lee':None,'Raj_Gupta':None,'Walter_Walker':None,'Alex_Robbinson':None,'Mariana_Cardoso':None},
 
 'Raj_Gupta':
-{'John_Stevens':None,'John_Doe':4,Kim_Lee':None,'Raj_Gupta':None,'Walter_Walker':None,'Alex_Robbinson':None,'Mariana_Cardoso':2},
+{'John_Stevens':None,'John_Doe':4,'Kim_Lee':None,'Raj_Gupta':None,'Walter_Walker':None,'Alex_Robbinson':None,'Mariana_Cardoso':2},
 
 'Walter_Walker':
 {'John_Stevens':1,'John_Doe':None,'Kim_Lee':None,'Raj_Gupta':None,'Walter_Walker':None,'Alex_Robbinson':1,'Mariana_Cardoso':None},
