@@ -4,105 +4,107 @@ import expand
 import sys, signal
 
 time_map1 = {
-    'Campus':{ 'Campus':None, 'Whole_Food':1, 'Beach':1, 'Cinema':None, 'Lighthouse':1, 'Ryan_Field':None, 'YWCA':None },
-    'Whole_Food':{ 'Campus':1, 'Whole_Food':None, 'Beach':1, 'Cinema':1, 'Lighthouse':None, 'Ryan_Field':None, 'YWCA':None },
-    'Beach':{ 'Campus':1, 'Whole_Food':1, 'Beach':None, 'Cinema':None, 'Lighthouse':None, 'Ryan_Field':None, 'YWCA':None },
-    'Cinema':{ 'Campus':None, 'Whole_Food':1, 'Beach':None, 'Cinema':None, 'Lighthouse':None, 'Ryan_Field':None, 'YWCA':1 },
-    'Lighthouse':{ 'Campus':1, 'Whole_Food':None, 'Beach':None, 'Cinema':None, 'Lighthouse':None, 'Ryan_Field':1, 'YWCA':None },
-    'Ryan_Field':{ 'Campus':None, 'Whole_Food':None, 'Beach':None, 'Cinema':None, 'Lighthouse':1, 'Ryan_Field':None, 'YWCA':1 },
-    'YWCA':{ 'Campus':None, 'Whole_Food':None, 'Beach':None, 'Cinema':1, 'Lighthouse':None, 'Ryan_Field':1, 'YWCA':None }
+    'John_Stevens':{ 'John_Stevens':None, 'John_Doe':1, 'Kim_Lee':1, 'Raj_Gupta':None, 'Walter_Walker':1, 'Alex_Robbinson':None, 'Mariana_Cardoso':None },
+    'John_Doe':{ 'John_Stevens':1, 'John_Doe':None, 'Kim_Lee':1, 'Raj_Gupta':1, 'Walter_Walker':None, 'Alex_Robbinson':None, 'Mariana_Cardoso':None },
+    'Kim_Lee':{ 'John_Stevens':1, 'John_Doe':1, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':None, 'Alex_Robbinson':None, 'Mariana_Cardoso':None },
+    'Raj_Gupta':{ 'John_Stevens':None, 'John_Doe':1, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':None, 'Alex_Robbinson':None, 'Mariana_Cardoso':1 },
+    'Walter_Walker':{ 'John_Stevens':1, 'John_Doe':None, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':None, 'Alex_Robbinson':1, 'Mariana_Cardoso':None },
+    'Alex_Robbinson':{ 'John_Stevens':None, 'John_Doe':None, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':1, 'Alex_Robbinson':None, 'Mariana_Cardoso':1 },
+    'Mariana_Cardoso':{ 'John_Stevens':None, 'John_Doe':None, 'Kim_Lee':None, 'Raj_Gupta':1, 'Walter_Walker':None, 'Alex_Robbinson':1, 'Mariana_Cardoso':None }
 }
 
 dis_map2 = {
-    'Campus':{ 'Campus':0, 'Whole_Food':3, 'Beach':5, 'Cinema':5, 'Lighthouse':1, 'Ryan_Field':2, 'YWCA':12 },
-    'Whole_Food':{ 'Campus':3, 'Whole_Food':0, 'Beach':3, 'Cinema':3, 'Lighthouse':4, 'Ryan_Field':5, 'YWCA':8 },
-    'Beach':{ 'Campus':5, 'Whole_Food':3, 'Beach':0, 'Cinema':8, 'Lighthouse':5, 'Ryan_Field':7, 'YWCA':12 },
-    'Cinema':{ 'Campus':5, 'Whole_Food':3, 'Beach':8, 'Cinema':0, 'Lighthouse':7, 'Ryan_Field':7, 'YWCA':2 },
-    'Lighthouse':{ 'Campus':1, 'Whole_Food':4, 'Beach':5, 'Cinema':7, 'Lighthouse':0, 'Ryan_Field':1, 'YWCA':15 },
-    'Ryan_Field':{ 'Campus':2, 'Whole_Food':5, 'Beach':7, 'Cinema':7, 'Lighthouse':1, 'Ryan_Field':0, 'YWCA':12 },
-    'YWCA':{ 'Campus':12, 'Whole_Food':8, 'Beach':12, 'Cinema':2, 'Lighthouse':15, 'Ryan_Field':12, 'YWCA':0 } }
+    'John_Stevens':{ 'John_Stevens':0, 'John_Doe':3, 'Kim_Lee':5, 'Raj_Gupta':5, 'Walter_Walker':1, 'Alex_Robbinson':2, 'Mariana_Cardoso':12 },
+    'John_Doe':{ 'John_Stevens':3, 'John_Doe':0, 'Kim_Lee':3, 'Raj_Gupta':3, 'Walter_Walker':4, 'Alex_Robbinson':5, 'Mariana_Cardoso':8 },
+    'Kim_Lee':{ 'John_Stevens':5, 'John_Doe':3, 'Kim_Lee':0, 'Raj_Gupta':8, 'Walter_Walker':5, 'Alex_Robbinson':7, 'Mariana_Cardoso':12 },
+    'Raj_Gupta':{ 'John_Stevens':5, 'John_Doe':3, 'Kim_Lee':8, 'Raj_Gupta':0, 'Walter_Walker':7, 'Alex_Robbinson':7, 'Mariana_Cardoso':2 },
+    'Walter_Walker':{ 'John_Stevens':1, 'John_Doe':4, 'Kim_Lee':5, 'Raj_Gupta':7, 'Walter_Walker':0, 'Alex_Robbinson':1, 'Mariana_Cardoso':15 },
+    'Alex_Robbinson':{ 'John_Stevens':2, 'John_Doe':5, 'Kim_Lee':7, 'Raj_Gupta':7, 'Walter_Walker':1, 'Alex_Robbinson':0, 'Mariana_Cardoso':12 },
+    'Mariana_Cardoso':{ 'John_Stevens':12, 'John_Doe':8, 'Kim_Lee':12, 'Raj_Gupta':2, 'Walter_Walker':15, 'Alex_Robbinson':12, 'Mariana_Cardoso':0 } }
 
 time_map2 = {
-    'Campus':{ 'Campus':None, 'Whole_Food':28, 'Beach':13, 'Cinema':None, 'Lighthouse':11, 'Ryan_Field':None, 'YWCA':None },
-    'Whole_Food':{ 'Campus':14, 'Whole_Food':None, 'Beach':14, 'Cinema':13, 'Lighthouse':None, 'Ryan_Field':None, 'YWCA':None },
-    'Beach':{ 'Campus':14, 'Whole_Food':14, 'Beach':None, 'Cinema':None, 'Lighthouse':None, 'Ryan_Field':None, 'YWCA':None },
-    'Cinema':{ 'Campus':None, 'Whole_Food':14, 'Beach':None, 'Cinema':None, 'Lighthouse':None, 'Ryan_Field':None, 'YWCA':12 },
-    'Lighthouse':{ 'Campus':11, 'Whole_Food':None, 'Beach':None, 'Cinema':None, 'Lighthouse':None, 'Ryan_Field':11, 'YWCA':None },
-    'Ryan_Field':{ 'Campus':None, 'Whole_Food':None, 'Beach':None, 'Cinema':None, 'Lighthouse':12, 'Ryan_Field':None, 'YWCA':15 },
-    'YWCA':{ 'Campus':None, 'Whole_Food':None, 'Beach':None, 'Cinema':13, 'Lighthouse':None, 'Ryan_Field':15, 'YWCA':None } }
+    'John_Stevens':{ 'John_Stevens':None, 'John_Doe':28, 'Kim_Lee':13, 'Raj_Gupta':None, 'Walter_Walker':11, 'Alex_Robbinson':None, 'Mariana_Cardoso':None },
+    'John_Doe':{ 'John_Stevens':14, 'John_Doe':None, 'Kim_Lee':14, 'Raj_Gupta':13, 'Walter_Walker':None, 'Alex_Robbinson':None, 'Mariana_Cardoso':None },
+    'Kim_Lee':{ 'John_Stevens':14, 'John_Doe':14, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':None, 'Alex_Robbinson':None, 'Mariana_Cardoso':None },
+    'Raj_Gupta':{ 'John_Stevens':None, 'John_Doe':14, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':None, 'Alex_Robbinson':None, 'Mariana_Cardoso':12 },
+    'Walter_Walker':{ 'John_Stevens':11, 'John_Doe':None, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':None, 'Alex_Robbinson':11, 'Mariana_Cardoso':None },
+    'Alex_Robbinson':{ 'John_Stevens':None, 'John_Doe':None, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':12, 'Alex_Robbinson':None, 'Mariana_Cardoso':15 },
+    'Mariana_Cardoso':{ 'John_Stevens':None, 'John_Doe':None, 'Kim_Lee':None, 'Raj_Gupta':13, 'Walter_Walker':None, 'Alex_Robbinson':15, 'Mariana_Cardoso':None } }
 
 
 dis_map5 = {
-    'Campus':{ 'Campus':0, 'Whole_Food':3, 'Beach':5, 'Cinema':5, 'Lighthouse':1, 'Ryan_Field':2, 'YWCA':12, 'CVS': 4 },
-    'Whole_Food':{ 'Campus':3, 'Whole_Food':0, 'Beach':3, 'Cinema':3, 'Lighthouse':4, 'Ryan_Field':5, 'YWCA':8, 'CVS': 3 },
-    'Beach':{ 'Campus':5, 'Whole_Food':3, 'Beach':0, 'Cinema':8, 'Lighthouse':5, 'Ryan_Field':7, 'YWCA':12, 'CVS': 6 },
-    'Cinema':{ 'Campus':5, 'Whole_Food':3, 'Beach':8, 'Cinema':0, 'Lighthouse':7, 'Ryan_Field':7, 'YWCA':2, 'CVS': 4 },
-    'Lighthouse':{ 'Campus':1, 'Whole_Food':4, 'Beach':5, 'Cinema':7, 'Lighthouse':0, 'Ryan_Field':1, 'YWCA':15, 'CVS': 5 },
-    'Ryan_Field':{ 'Campus':2, 'Whole_Food':5, 'Beach':7, 'Cinema':7, 'Lighthouse':1, 'Ryan_Field':0, 'YWCA':12 , 'CVS': 4},
-    'YWCA':{ 'Campus':12, 'Whole_Food':8, 'Beach':12, 'Cinema':2, 'Lighthouse':15, 'Ryan_Field':12, 'YWCA':0, 'CVS': 5 }, 
-    'CVS': { 'Campus':12, 'Whole_Food':8, 'Beach':12, 'Cinema':2, 'Lighthouse':15, 'Ryan_Field':12, 'YWCA':0, 'CVS': 0}}
+    'John_Stevens':{ 'John_Stevens':0, 'John_Doe':3, 'Kim_Lee':5, 'Raj_Gupta':5, 'Walter_Walker':1, 'Alex_Robbinson':2, 'Mariana_Cardoso':12, 'Sarah_Parker': 4 },
+    'John_Doe':{ 'John_Stevens':3, 'John_Doe':0, 'Kim_Lee':3, 'Raj_Gupta':3, 'Walter_Walker':4, 'Alex_Robbinson':5, 'Mariana_Cardoso':8, 'Sarah_Parker': 3 },
+    'Kim_Lee':{ 'John_Stevens':5, 'John_Doe':3, 'Kim_Lee':0, 'Raj_Gupta':8, 'Walter_Walker':5, 'Alex_Robbinson':7, 'Mariana_Cardoso':12, 'Sarah_Parker': 6 },
+    'Raj_Gupta':{ 'John_Stevens':5, 'John_Doe':3, 'Kim_Lee':8, 'Raj_Gupta':0, 'Walter_Walker':7, 'Alex_Robbinson':7, 'Mariana_Cardoso':2, 'Sarah_Parker': 4 },
+    'Walter_Walker':{ 'John_Stevens':1, 'John_Doe':4, 'Kim_Lee':5, 'Raj_Gupta':7, 'Walter_Walker':0, 'Alex_Robbinson':1, 'Mariana_Cardoso':15, 'Sarah_Parker': 5 },
+    'Alex_Robbinson':{ 'John_Stevens':2, 'John_Doe':5, 'Kim_Lee':7, 'Raj_Gupta':7, 'Walter_Walker':1, 'Alex_Robbinson':0, 'Mariana_Cardoso':12 , 'Sarah_Parker': 4},
+    'Mariana_Cardoso':{ 'John_Stevens':12, 'John_Doe':8, 'Kim_Lee':12, 'Raj_Gupta':2, 'Walter_Walker':15, 'Alex_Robbinson':12, 'Mariana_Cardoso':0, 'Sarah_Parker': 5 },
+    'Sarah_Parker': { 'John_Stevens':12, 'John_Doe':8, 'Kim_Lee':12, 'Raj_Gupta':2, 'Walter_Walker':15, 'Alex_Robbinson':12, 'Mariana_Cardoso':0, 'Sarah_Parker': 0}}
 
 time_map5 = {
-    'Campus':{ 'Campus':None, 'Whole_Food':28, 'Beach':13, 'Cinema':None, 'Lighthouse':11, 'Ryan_Field':None, 'YWCA':None, 'CVS': None },
-    'Whole_Food':{ 'Campus':14, 'Whole_Food':None, 'Beach':14, 'Cinema':13, 'Lighthouse':None, 'Ryan_Field':None, 'YWCA':None, 'CVS': 6 },
-    'Beach':{ 'Campus':14, 'Whole_Food':14, 'Beach':None, 'Cinema':None, 'Lighthouse':None, 'Ryan_Field':None, 'YWCA':None, 'CVS': None },
-    'Cinema':{ 'Campus':None, 'Whole_Food':14, 'Beach':None, 'Cinema':None, 'Lighthouse':None, 'Ryan_Field':None, 'YWCA':12, 'CVS': None },
-    'Lighthouse':{ 'Campus':11, 'Whole_Food':None, 'Beach':None, 'Cinema':None, 'Lighthouse':None, 'Ryan_Field':11, 'YWCA':None, 'CVS': None },
-    'Ryan_Field':{ 'Campus':None, 'Whole_Food':None, 'Beach':None, 'Cinema':None, 'Lighthouse':12, 'Ryan_Field':None, 'YWCA':15, 'CVS': None },
-    'YWCA':{ 'Campus':None, 'Whole_Food':None, 'Beach':None, 'Cinema':13, 'Lighthouse':None, 'Ryan_Field':15, 'YWCA':None, 'CVS': None }, 
-    'CVS': { 'Campus':7, 'Whole_Food':None, 'Beach':None, 'Cinema':6, 'Lighthouse':None, 'Ryan_Field':None, 'YWCA':None, 'CVS': None } }
+    'John_Stevens':{ 'John_Stevens':None, 'John_Doe':28, 'Kim_Lee':13, 'Raj_Gupta':None, 'Walter_Walker':11, 'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Sarah_Parker': None },
+    'John_Doe':{ 'John_Stevens':14, 'John_Doe':None, 'Kim_Lee':14, 'Raj_Gupta':13, 'Walter_Walker':None, 'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Sarah_Parker': 6 },
+    'Kim_Lee':{ 'John_Stevens':14, 'John_Doe':14, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':None, 'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Sarah_Parker': None },
+    'Raj_Gupta':{ 'John_Stevens':None, 'John_Doe':14, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':None, 'Alex_Robbinson':None, 'Mariana_Cardoso':12, 'Sarah_Parker': None },
+    'Walter_Walker':{ 'John_Stevens':11, 'John_Doe':None, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':None, 'Alex_Robbinson':11, 'Mariana_Cardoso':None, 'Sarah_Parker': None },
+    'Alex_Robbinson':{ 'John_Stevens':None, 'John_Doe':None, 'Kim_Lee':None, 'Raj_Gupta':None, 'Walter_Walker':12, 'Alex_Robbinson':None, 'Mariana_Cardoso':15, 'Sarah_Parker': None },
+    'Mariana_Cardoso':{ 'John_Stevens':None, 'John_Doe':None, 'Kim_Lee':None, 'Raj_Gupta':13, 'Walter_Walker':None, 'Alex_Robbinson':15, 'Mariana_Cardoso':None, 'Sarah_Parker': None },
+    'Sarah_Parker': { 'John_Stevens':7, 'John_Doe':None, 'Kim_Lee':None, 'Raj_Gupta':6, 'Walter_Walker':None, 'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Sarah_Parker': None } }
 
 dis_mapM = {
-    'a': { 'a':0, 'b':1, 'c':2, 'd':3, 'e':1, 'f':2, 'g':3, 'h':4, 'i':2, 'j':3, 'k':4, 'l':5, 'm':3, 'n':4, 'o':5, 'p':6},
-    'b': { 'a':1, 'b':0, 'c':1, 'd':2, 'e':2, 'f':1, 'g':2, 'h':3, 'i':3, 'j':2, 'k':3, 'l':4, 'm':4, 'n':3, 'o':4, 'p':5},
-    'c': { 'a':2, 'b':1, 'c':0, 'd':1, 'e':3, 'f':2, 'g':1, 'h':2, 'i':4, 'j':3, 'k':2, 'l':3, 'm':5, 'n':4, 'o':3, 'p':4},
-    'd': { 'a':3, 'b':2, 'c':1, 'd':0, 'e':4, 'f':3, 'g':2, 'h':1, 'i':5, 'j':4, 'k':3, 'l':2, 'm':6, 'n':5, 'o':4, 'p':3},
-    'e': { 'a':1, 'b':2, 'c':3, 'd':4, 'e':0, 'f':1, 'g':2, 'h':3, 'i':1, 'j':2, 'k':3, 'l':4, 'm':2, 'n':3, 'o':4, 'p':5},
-    'f': { 'a':2, 'b':1, 'c':2, 'd':3, 'e':1, 'f':0, 'g':1, 'h':2, 'i':2, 'j':1, 'k':2, 'l':3, 'm':3, 'n':2, 'o':3, 'p':4},
-    'g': { 'a':3, 'b':2, 'c':1, 'd':2, 'e':2, 'f':1, 'g':0, 'h':1, 'i':3, 'j':2, 'k':1, 'l':2, 'm':4, 'n':3, 'o':2, 'p':3},
-    'h': { 'a':4, 'b':3, 'c':2, 'd':1, 'e':3, 'f':2, 'g':1, 'h':0, 'i':4, 'j':3, 'k':2, 'l':1, 'm':5, 'n':4, 'o':2, 'p':2},
-    'i': { 'a':2, 'b':3, 'c':4, 'd':5, 'e':1, 'f':2, 'g':3, 'h':4, 'i':0, 'j':1, 'k':2, 'l':3, 'm':1, 'n':2, 'o':3, 'p':4},
-    'j': { 'a':3, 'b':2, 'c':3, 'd':4, 'e':2, 'f':1, 'g':2, 'h':3, 'i':2, 'j':0, 'k':1, 'l':2, 'm':2, 'n':1, 'o':2, 'p':3},
-    'k': { 'a':4, 'b':3, 'c':2, 'd':3, 'e':3, 'f':2, 'g':1, 'h':2, 'i':2, 'j':1, 'k':0, 'l':1, 'm':3, 'n':2, 'o':1, 'p':2},
-    'l': { 'a':5, 'b':4, 'c':3, 'd':2, 'e':4, 'f':3, 'g':2, 'h':1, 'i':3, 'j':2, 'k':1, 'l':0, 'm':4, 'n':3, 'o':2, 'p':1},
-    'm': { 'a':3, 'b':4, 'c':5, 'd':6, 'e':2, 'f':3, 'g':4, 'h':5, 'i':1, 'j':2, 'k':3, 'l':4, 'm':0, 'n':1, 'o':2, 'p':3},
-    'n': { 'a':4, 'b':3, 'c':4, 'd':5, 'e':3, 'f':2, 'g':3, 'h':4, 'i':2, 'j':1, 'k':2, 'l':3, 'm':1, 'n':0, 'o':1, 'p':2},
-    'o': { 'a':5, 'b':4, 'c':3, 'd':4, 'e':4, 'f':3, 'g':2, 'h':3, 'i':3, 'j':2, 'k':1, 'l':2, 'm':2, 'n':1, 'o':0, 'p':1},
-    'p': { 'a':6, 'b':5, 'c':4, 'd':3, 'e':5, 'f':4, 'g':3, 'h':2, 'i':4, 'j':3, 'k':2, 'l':1, 'm':3, 'n':2, 'o':1, 'p':0}
+    'Alex_Robbinson': { 'Alex_Robbinson':0, 'Benjamin_Walker':1, 'Catherine_Stevens':2, 'David_Stone':3, 'Elena_Cardoso':1, 'Fiona_Rutherfurd':2, 'George_Richford':3, 'Hannah_Mullard':4, 'Ivy_Doe':2, 'Jessica_Baker':3, 'Kim_Lee':4, 'Lakshmi_Raman':5, 'Mariana_Cardoso':3, 'Heather_Raymond':4, 'Olivia_Keeton':5, 'Peter_Kilshaw':6},
+    'Benjamin_Walker': { 'Alex_Robbinson':1, 'Benjamin_Walker':0, 'Catherine_Stevens':1, 'David_Stone':2, 'Elena_Cardoso':2, 'Fiona_Rutherfurd':1, 'George_Richford':2, 'Hannah_Mullard':3, 'Ivy_Doe':3, 'Jessica_Baker':2, 'Kim_Lee':3, 'Lakshmi_Raman':4, 'Mariana_Cardoso':4, 'Heather_Raymond':3, 'Olivia_Keeton':4, 'Peter_Kilshaw':5},
+    'Catherine_Stevens': { 'Alex_Robbinson':2, 'Benjamin_Walker':1, 'Catherine_Stevens':0, 'David_Stone':1, 'Elena_Cardoso':3, 'Fiona_Rutherfurd':2, 'George_Richford':1, 'Hannah_Mullard':2, 'Ivy_Doe':4, 'Jessica_Baker':3, 'Kim_Lee':2, 'Lakshmi_Raman':3, 'Mariana_Cardoso':5, 'Heather_Raymond':4, 'Olivia_Keeton':3, 'Peter_Kilshaw':4},
+    'David_Stone': { 'Alex_Robbinson':3, 'Benjamin_Walker':2, 'Catherine_Stevens':1, 'David_Stone':0, 'Elena_Cardoso':4, 'Fiona_Rutherfurd':3, 'George_Richford':2, 'Hannah_Mullard':1, 'Ivy_Doe':5, 'Jessica_Baker':4, 'Kim_Lee':3, 'Lakshmi_Raman':2, 'Mariana_Cardoso':6, 'Heather_Raymond':5, 'Olivia_Keeton':4, 'Peter_Kilshaw':3},
+    'Elena_Cardoso': { 'Alex_Robbinson':1, 'Benjamin_Walker':2, 'Catherine_Stevens':3, 'David_Stone':4, 'Elena_Cardoso':0, 'Fiona_Rutherfurd':1, 'George_Richford':2, 'Hannah_Mullard':3, 'Ivy_Doe':1, 'Jessica_Baker':2, 'Kim_Lee':3, 'Lakshmi_Raman':4, 'Mariana_Cardoso':2, 'Heather_Raymond':3, 'Olivia_Keeton':4, 'Peter_Kilshaw':5},
+    'Fiona_Rutherfurd': { 'Alex_Robbinson':2, 'Benjamin_Walker':1, 'Catherine_Stevens':2, 'David_Stone':3, 'Elena_Cardoso':1, 'Fiona_Rutherfurd':0, 'George_Richford':1, 'Hannah_Mullard':2, 'Ivy_Doe':2, 'Jessica_Baker':1, 'Kim_Lee':2, 'Lakshmi_Raman':3, 'Mariana_Cardoso':3, 'Heather_Raymond':2, 'Olivia_Keeton':3, 'Peter_Kilshaw':4},
+    'George_Richford': { 'Alex_Robbinson':3, 'Benjamin_Walker':2, 'Catherine_Stevens':1, 'David_Stone':2, 'Elena_Cardoso':2, 'Fiona_Rutherfurd':1, 'George_Richford':0, 'Hannah_Mullard':1, 'Ivy_Doe':3, 'Jessica_Baker':2, 'Kim_Lee':1, 'Lakshmi_Raman':2, 'Mariana_Cardoso':4, 'Heather_Raymond':3, 'Olivia_Keeton':2, 'Peter_Kilshaw':3},
+    'Hannah_Mullard': { 'Alex_Robbinson':4, 'Benjamin_Walker':3, 'Catherine_Stevens':2, 'David_Stone':1, 'Elena_Cardoso':3, 'Fiona_Rutherfurd':2, 'George_Richford':1, 'Hannah_Mullard':0, 'Ivy_Doe':4, 'Jessica_Baker':3, 'Kim_Lee':2, 'Lakshmi_Raman':1, 'Mariana_Cardoso':5, 'Heather_Raymond':4, 'Olivia_Keeton':2, 'Peter_Kilshaw':2},
+    'Ivy_Doe': { 'Alex_Robbinson':2, 'Benjamin_Walker':3, 'Catherine_Stevens':4, 'David_Stone':5, 'Elena_Cardoso':1, 'Fiona_Rutherfurd':2, 'George_Richford':3, 'Hannah_Mullard':4, 'Ivy_Doe':0, 'Jessica_Baker':1, 'Kim_Lee':2, 'Lakshmi_Raman':3, 'Mariana_Cardoso':1, 'Heather_Raymond':2, 'Olivia_Keeton':3, 'Peter_Kilshaw':4},
+    'Jessica_Baker': { 'Alex_Robbinson':3, 'Benjamin_Walker':2, 'Catherine_Stevens':3, 'David_Stone':4, 'Elena_Cardoso':2, 'Fiona_Rutherfurd':1, 'George_Richford':2, 'Hannah_Mullard':3, 'Ivy_Doe':2, 'Jessica_Baker':0, 'Kim_Lee':1, 'Lakshmi_Raman':2, 'Mariana_Cardoso':2, 'Heather_Raymond':1, 'Olivia_Keeton':2, 'Peter_Kilshaw':3},
+    'Kim_Lee': { 'Alex_Robbinson':4, 'Benjamin_Walker':3, 'Catherine_Stevens':2, 'David_Stone':3, 'Elena_Cardoso':3, 'Fiona_Rutherfurd':2, 'George_Richford':1, 'Hannah_Mullard':2, 'Ivy_Doe':2, 'Jessica_Baker':1, 'Kim_Lee':0, 'Lakshmi_Raman':1, 'Mariana_Cardoso':3, 'Heather_Raymond':2, 'Olivia_Keeton':1, 'Peter_Kilshaw':2},
+    'Lakshmi_Raman': { 'Alex_Robbinson':5, 'Benjamin_Walker':4, 'Catherine_Stevens':3, 'David_Stone':2, 'Elena_Cardoso':4, 'Fiona_Rutherfurd':3, 'George_Richford':2, 'Hannah_Mullard':1, 'Ivy_Doe':3, 'Jessica_Baker':2, 'Kim_Lee':1, 'Lakshmi_Raman':0, 'Mariana_Cardoso':4, 'Heather_Raymond':3, 'Olivia_Keeton':2, 'Peter_Kilshaw':1},
+    'Mariana_Cardoso': { 'Alex_Robbinson':3, 'Benjamin_Walker':4, 'Catherine_Stevens':5, 'David_Stone':6, 'Elena_Cardoso':2, 'Fiona_Rutherfurd':3, 'George_Richford':4, 'Hannah_Mullard':5, 'Ivy_Doe':1, 'Jessica_Baker':2, 'Kim_Lee':3, 'Lakshmi_Raman':4, 'Mariana_Cardoso':0, 'Heather_Raymond':1, 'Olivia_Keeton':2, 'Peter_Kilshaw':3},
+    'Heather_Raymond': { 'Alex_Robbinson':4, 'Benjamin_Walker':3, 'Catherine_Stevens':4, 'David_Stone':5, 'Elena_Cardoso':3, 'Fiona_Rutherfurd':2, 'George_Richford':3, 'Hannah_Mullard':4, 'Ivy_Doe':2, 'Jessica_Baker':1, 'Kim_Lee':2, 'Lakshmi_Raman':3, 'Mariana_Cardoso':1, 'Heather_Raymond':0, 'Olivia_Keeton':1, 'Peter_Kilshaw':2},
+    'Olivia_Keeton': { 'Alex_Robbinson':5, 'Benjamin_Walker':4, 'Catherine_Stevens':3, 'David_Stone':4, 'Elena_Cardoso':4, 'Fiona_Rutherfurd':3, 'George_Richford':2, 'Hannah_Mullard':3, 'Ivy_Doe':3, 'Jessica_Baker':2, 'Kim_Lee':1, 'Lakshmi_Raman':2, 'Mariana_Cardoso':2, 'Heather_Raymond':1, 'Olivia_Keeton':0, 'Peter_Kilshaw':1},
+    'Peter_Kilshaw': { 'Alex_Robbinson':6, 'Benjamin_Walker':5, 'Catherine_Stevens':4, 'David_Stone':3, 'Elena_Cardoso':5, 'Fiona_Rutherfurd':4, 'George_Richford':3, 'Hannah_Mullard':2, 'Ivy_Doe':4, 'Jessica_Baker':3, 'Kim_Lee':2, 'Lakshmi_Raman':1, 'Mariana_Cardoso':3, 'Heather_Raymond':2, 'Olivia_Keeton':1, 'Peter_Kilshaw':0}
 }
 
 time_mapM = {
-    'a': { 'a':None, 'b':1, 'c':None, 'd':None, 'e':1, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None, 'l':None, 'm':None, 'n':None, 'o':None, 'p':None},
-    'b': { 'a':1, 'b':None, 'c':1, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None, 'l':None, 'm':None, 'n':None, 'o':None, 'p':None},
-    'c': { 'a':None, 'b':1, 'c':None, 'd':1, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None, 'l':None, 'm':None, 'n':None, 'o':None, 'p':None},
-    'd': { 'a':None, 'b':None, 'c':1, 'd':None, 'e':None, 'f':None, 'g':None, 'h':1, 'i':None, 'j':None, 'k':None, 'l':None, 'm':None, 'n':None, 'o':None, 'p':None},
-    'e': { 'a':1, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':1, 'j':None, 'k':None, 'l':None, 'm':None, 'n':None, 'o':None, 'p':None},
-    'f': { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':1, 'h':None, 'i':None, 'j':1, 'k':None, 'l':None, 'm':None, 'n':None, 'o':None, 'p':None},
-    'g': { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':1, 'g':None, 'h':1, 'i':None, 'j':None, 'k':None, 'l':None, 'm':None, 'n':None, 'o':None, 'p':None},
-    'h': { 'a':None, 'b':None, 'c':None, 'd':1, 'e':None, 'f':None, 'g':1, 'h':None, 'i':None, 'j':None, 'k':None, 'l':None, 'm':None, 'n':None, 'o':None, 'p':None},
-    'i': { 'a':None, 'b':None, 'c':None, 'd':None, 'e':1, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None, 'l':None, 'm':1, 'n':None, 'o':None, 'p':None},
-    'j': { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':1, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None, 'l':None, 'm':None, 'n':1, 'o':None, 'p':None},
-    'k': { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None, 'l':1, 'm':None, 'n':None, 'o':None, 'p':None},
-    'l': { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':1, 'l':None, 'm':None, 'n':None, 'o':None, 'p':1},
-    'm': { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':1, 'j':None, 'k':None, 'l':None, 'm':None, 'n':None, 'o':None, 'p':None},
-    'n': { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':1, 'k':None, 'l':None, 'm':None, 'n':None, 'o':1, 'p':None},
-    'o': { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None, 'l':None, 'm':None, 'n':1, 'o':None, 'p':1},
-    'p': { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None, 'l':1, 'm':None, 'n':None, 'o':1, 'p':None}
+    'Alex_Robbinson': { 'Alex_Robbinson':None, 'Benjamin_Walker':1, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':1, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'Benjamin_Walker': { 'Alex_Robbinson':1, 'Benjamin_Walker':None, 'Catherine_Stevens':1, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'Catherine_Stevens': { 'Alex_Robbinson':None, 'Benjamin_Walker':1, 'Catherine_Stevens':None, 'David_Stone':1, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'David_Stone': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':1, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':1, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'Elena_Cardoso': { 'Alex_Robbinson':1, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':1, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'Fiona_Rutherfurd': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':1, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':1, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'George_Richford': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':1, 'George_Richford':None, 'Hannah_Mullard':1, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'Hannah_Mullard': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':1, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':1, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'Ivy_Doe': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':1, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':1, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'Jessica_Baker': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':1, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':1, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'Kim_Lee': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':1, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'Lakshmi_Raman': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':1, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':1},
+    'Mariana_Cardoso': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':1, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':None, 'Peter_Kilshaw':None},
+    'Heather_Raymond': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':1, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':1, 'Peter_Kilshaw':None},
+    'Olivia_Keeton': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':None, 'Mariana_Cardoso':None, 'Heather_Raymond':1, 'Olivia_Keeton':None, 'Peter_Kilshaw':1},
+    'Peter_Kilshaw': { 'Alex_Robbinson':None, 'Benjamin_Walker':None, 'Catherine_Stevens':None, 'David_Stone':None, 'Elena_Cardoso':None, 'Fiona_Rutherfurd':None, 'George_Richford':None, 'Hannah_Mullard':None, 'Ivy_Doe':None, 'Jessica_Baker':None, 'Kim_Lee':None, 'Lakshmi_Raman':1, 'Mariana_Cardoso':None, 'Heather_Raymond':None, 'Olivia_Keeton':1, 'Peter_Kilshaw':None}
 }
 
 time_mapT = {
-    'a': {'a':None, 'b':1, 'c':1, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None},
-    'b': {'a':None, 'b':None, 'c':None, 'd':1, 'e':1, 'f':1, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None},
-    'c': {'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':1, 'h':1, 'i':None, 'j':None, 'k':None},
-    'd': {'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None},
-    'e': {'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None},
-    'f': {'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':1, 'j':1, 'k':None},
-    'g': {'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None},
-    'h': {'a':None, 'b':None, 'c':None, 'd':None, 'e':1, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':1},
-    'i': {'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None},
-    'j': {'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None},
-    'k': {'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, 'g':None, 'h':None, 'i':None, 'j':None, 'k':None}
+    'Alex_Robbinson': {'Alex_Robbinson':None, 'Mariana_Cardoso':1, 'Walter_Walker':1, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Mariana_Cardoso': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':1, 'Aaron_Stone':1, 'Catherine_Stevens':1, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Walter_Walker': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':1, 'h':1, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Raj_Gupta': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Aaron_Stone': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Catherine_Stevens': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':1, 'Preeti_Singh':1, 'Kim_Lee':None},
+    'Mike_Rhodes': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'h': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':1, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':1},
+    'John_Stevens': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Preeti_Singh': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None},
+    'Kim_Lee': {'Alex_Robbinson':None, 'Mariana_Cardoso':None, 'Walter_Walker':None, 'Raj_Gupta':None, 'Aaron_Stone':None, 'Catherine_Stevens':None, 'Mike_Rhodes':None, 'h':None, 'John_Stevens':None, 'Preeti_Singh':None, 'Kim_Lee':None}
 }
+
+
 
 def interrupt(a,b):
     sys.exit(1)
@@ -111,120 +113,121 @@ class UnitTests(unittest.TestCase):
 
     def test1(self):
         expand.expand_count = 0
-        path = sc.breadth_first_search(time_map1, 'Campus', 'YWCA')
+        path = sc.breadth_first_search(time_map1, 'John_Stevens', 'Mariana_Cardoso')
         print(path)
         def check(path):
-            if path == ['Campus', 'Lighthouse', 'Ryan_Field', 'YWCA']:
+            if path == ['John_Stevens', 'Walter_Walker', 'Alex_Robbinson', 'Mariana_Cardoso']:
                 return True
-            if path == ['Campus', 'Whole_Food', 'Cinema', 'YWCA']:
+            if path == ['John_Stevens', 'John_Doe', 'Raj_Gupta', 'Mariana_Cardoso']:
                 return True
             return False
         self.assertEqual(True,check(path))
 
         # with self.subTest():
-        #     self.assertEqual(path, ['Campus', 'Whole_Food', 'Cinema', 'YWCA']) or \
-        #     self.assertEqual(path, ['Campus', 'Lighthouse', 'Ryan_Field', 'YWCA'])
-        # assert (path,path)==['Campus', 'Whole_Food', 'Cinema', 'YWCA'],['Campus', 'Lighthouse', 'Ryan_Field', 'YWCA']
+        #     self.assertEqual(path, ['John_Stevens', 'John_Doe', 'Raj_Gupta', 'Mariana_Cardoso']) or \
+        #     self.assertEqual(path, ['John_Stevens', 'Walter_Walker', 'Alex_Robbinson', 'Mariana_Cardoso'])
+        # assert (path,path)==['John_Stevens', 'John_Doe', 'Raj_Gupta', 'Mariana_Cardoso'],['John_Stevens', 'Walter_Walker', 'Alex_Robbinson', 'Mariana_Cardoso']
         self.assertEqual(expand.expand_count, 6)
 
-    # def test2(self):
+  # def test2(self):
     #     expand.expand_count = 0
-    #     path = sc.breadth_first_search(time_mapM, 'a', 'g')
-    #     self.assertEqual(path, ['a', 'b', 'c', 'd', 'h', 'g'])
+    #     path = sc.breadth_first_search(time_mapM, 'Alex_Robbinson', 'George_Richford')
+    #     self.assertEqual(path, ['Alex_Robbinson', 'Benjamin_Walker', 'Catherine_Stevens', 'David_Stone', 'Hannah_Mullard', 'George_Richford'])
     #     self.assertEqual(expand.expand_count, 8)
 
     # def test3(self):
     #     expand.expand_count = 0
-    #     path = sc.depth_first_search(time_mapT, 'a', 'e')
+    #     path = sc.depth_first_search(time_mapT, 'Alex_Robbinson', 'Aaron_Stone')
     #     # Two correct answers for right-to-left or left-to-right child traversal respectively
-    #     self.assertIn(path, [['a', 'c', 'h', 'e'], ['a', 'b', 'e']])
+    #     self.assertIn(path, [['Alex_Robbinson', 'Walter_Walker', 'Sarah_Parker', 'Aaron_Stone'], ['Alex_Robbinson', 'Mariana_Cardoso', 'Aaron_Stone']])
     #     self.assertIn(expand.expand_count, [4, 3])
 
     # def test4(self):
     #     expand.expand_count = 0
-    #     path = sc.depth_first_search(time_mapT, 'a', 'd')
-    #     self.assertEqual(path, ['a', 'b', 'd'])
+    #     path = sc.depth_first_search(time_mapT, 'Alex_Robbinson', 'Raj_Gupta')
+    #     self.assertEqual(path, ['Alex_Robbinson', 'Mariana_Cardoso', 'Raj_Gupta'])
     #     # Two correct answers for right-to-left or left-to-right child traversal respectively
     #     self.assertIn(expand.expand_count, [11, 2])
+
 
     # def test5(self):
     #     signal.signal(signal.SIGALRM, interrupt)
     #     expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map2, time_map2, 'Whole_Food', 'Ryan_Field')
-    #     self.assertEqual(path, ['Whole_Food', 'Campus', 'Lighthouse', 'Ryan_Field'])
+    #     path = sc.a_star_search(dis_map2, time_map2, 'John_Doe', 'Alex_Robbinson')
+    #     self.assertEqual(path, ['John_Doe', 'John_Stevens', 'Walter_Walker', 'Alex_Robbinson'])
     #     self.assertEqual(expand.expand_count, 5)
 
     # def test6(self):
     #     signal.signal(signal.SIGALRM, interrupt)
     #     expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map2, time_map2, 'YWCA', 'Campus')
-    #     self.assertEqual(path, ['YWCA', 'Ryan_Field', 'Lighthouse', 'Campus'])
+    #     path = sc.a_star_search(dis_map2, time_map2, 'Mariana_Cardoso', 'John_Stevens')
+    #     self.assertEqual(path, ['Mariana_Cardoso', 'Alex_Robbinson', 'Walter_Walker', 'John_Stevens'])
     #     self.assertEqual(expand.expand_count, 5)
 
     # def test7(self):
     #     signal.signal(signal.SIGALRM, interrupt)
     #     expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map5, time_map5, 'CVS', 'Whole_Food')
-    #     self.assertEqual(path, ['CVS', 'Cinema', 'Whole_Food'])
+    #     path = sc.a_star_search(dis_map5, time_map5, 'Sarah_Parker', 'John_Doe')
+    #     self.assertEqual(path, ['Sarah_Parker', 'Raj_Gupta', 'John_Doe'])
     #     self.assertEqual(expand.expand_count, 3)
 
     # def test8(self):
     #     signal.signal(signal.SIGALRM, interrupt)
     #     expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map5, time_map5, 'Ryan_Field', 'CVS')
-    #     self.assertEqual(path, ['Ryan_Field', 'YWCA', 'Cinema', 'Whole_Food', 'CVS'])
+    #     path = sc.a_star_search(dis_map5, time_map5, 'Alex_Robbinson', 'Sarah_Parker')
+    #     self.assertEqual(path, ['Alex_Robbinson', 'Mariana_Cardoso', 'Raj_Gupta', 'John_Doe', 'Sarah_Parker'])
     #     self.assertEqual(expand.expand_count, 7)
 
     # def test9(self):
     #     signal.signal(signal.SIGALRM, interrupt)
     #     expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map5, time_map5, 'Campus', 'CVS')
-    #     self.assertEqual(path, ['Campus', 'Beach', 'Whole_Food', 'CVS'])
+    #     path = sc.a_star_search(dis_map5, time_map5, 'John_Stevens', 'Sarah_Parker')
+    #     self.assertEqual(path, ['John_Stevens', 'Kim_Lee', 'John_Doe', 'Sarah_Parker'])
     #     self.assertEqual(expand.expand_count, 5)
 
     # def test10(self):
     #     signal.signal(signal.SIGALRM, interrupt)
     #     expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_map5, time_map5, 'Campus', 'Cinema')
-    #     self.assertEqual(path, ['Campus', 'Beach', 'Whole_Food', 'CVS', 'Cinema'])
+    #     path = sc.a_star_search(dis_map5, time_map5, 'John_Stevens', 'Raj_Gupta')
+    #     self.assertEqual(path, ['John_Stevens', 'Kim_Lee', 'John_Doe', 'Sarah_Parker', 'Raj_Gupta'])
     #     self.assertEqual(expand.expand_count, 6)
 
     # def test11(self):
     #     signal.signal(signal.SIGALRM, interrupt)
     #     expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_mapM, time_mapM, 'a', 'p')
-    #     self.assertEqual(path, ['a', 'b', 'c', 'd', 'h', 'g', 'f', 'j', 'n', 'o', 'p'])
+    #     path = sc.a_star_search(dis_mapM, time_mapM, 'Alex_Robbinson', 'Peter_Kilshaw')
+    #     self.assertEqual(path, ['Alex_Robbinson', 'Benjamin_Walker', 'Catherine_Stevens', 'David_Stone', 'Hannah_Mullard', 'George_Richford', 'Fiona_Rutherfurd', 'Jessica_Baker', 'Heather_Raymond', 'Olivia_Keeton', 'Peter_Kilshaw'])
     #     self.assertEqual(expand.expand_count, 13)
 
     # def test12(self):
     #     signal.signal(signal.SIGALRM, interrupt)
     #     expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_mapM, time_mapM, 'h', 'p')
-    #     self.assertEqual(path, ['h', 'g', 'f', 'j', 'n', 'o', 'p'])
+    #     path = sc.a_star_search(dis_mapM, time_mapM, 'Hannah_Mullard', 'Peter_Kilshaw')
+    #     self.assertEqual(path, ['Hannah_Mullard', 'George_Richford', 'Fiona_Rutherfurd', 'Jessica_Baker', 'Heather_Raymond', 'Olivia_Keeton', 'Peter_Kilshaw'])
     #     self.assertEqual(expand.expand_count, 8)
 
     # def test13(self):
     #     signal.signal(signal.SIGALRM, interrupt)
     #     expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_mapM, time_mapM, 'h', 'a')
-    #     self.assertEqual(path, ['h', 'd', 'c', 'b', 'a'])
+    #     path = sc.a_star_search(dis_mapM, time_mapM, 'Hannah_Mullard', 'Alex_Robbinson')
+    #     self.assertEqual(path, ['Hannah_Mullard', 'David_Stone', 'Catherine_Stevens', 'Benjamin_Walker', 'Alex_Robbinson'])
     #     self.assertEqual(expand.expand_count, 4)
 
     # def test14(self):
     #     signal.signal(signal.SIGALRM, interrupt)
     #     expand.expand_count = 0
     #     signal.alarm(5)
-    #     path = sc.a_star_search(dis_mapM, time_mapM, 'l', 'n')
-    #     self.assertEqual(path, ['l', 'p', 'o', 'n'])
+    #     path = sc.a_star_search(dis_mapM, time_mapM, 'Lakshmi_Raman', 'Heather_Raymond')
+    #     self.assertEqual(path, ['Lakshmi_Raman', 'Peter_Kilshaw', 'Olivia_Keeton', 'Heather_Raymond'])
     #     self.assertEqual(expand.expand_count, 4)
 
 if __name__== "__main__": unittest.main()
